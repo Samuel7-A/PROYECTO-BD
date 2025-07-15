@@ -1,0 +1,96 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+    background-color: #f4f6fb;
+    color: #222;
+}
+
+header {
+    text-align: center;
+    margin-top: 32px;
+    margin-bottom: 24px;
+}
+
+h1 {
+    color: #002b8c;
+    font-size: 2.2em;
+    margin-bottom: 0;
+}
+
+main {
+    max-width: 900px;
+    margin: 0 auto;
+    background: #fff;
+    border-radius: 14px;
+    box-shadow: 0 2px 12px rgba(0,43,140,0.07);
+    padding: 32px 24px;
+}
+
+h2 {
+    color: #002b8c;
+    margin-top: 0;
+    margin-bottom: 24px;
+    font-size: 1.3em;
+    text-align: center; 
+}
+
+#tabla-registros {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    background: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0,43,140,0.06);
+}
+.btn-salir {
+    position: fixed;
+    right: 32px;
+    bottom: 32px;
+    background-color: #0a3a6a;
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    padding: 14px 28px;
+    font-size: 1em;
+    font-weight: bold;
+    box-shadow: 0 2px 8px rgba(0,43,140,0.10);
+    cursor: pointer;
+    transition: background 0.2s;
+    z-index: 1000;
+}
+.btn-salir:hover {
+    background-color: #072b50;
+}
+
+#tabla-registros th,
+#tabla-registros td {
+    padding: 14px 18px;
+    text-align: center;
+}
+
+#tabla-registros th {
+    background: #eaf0fb;
+    color: #002b8c;
+    font-weight: bold;
+    border-bottom: 2px solid #d1e0fa;
+}
+
+#tabla-registros tr {
+    border-bottom: 1px solid #f0f2f7;
+}
+
+#tabla-registros tr:last-child {
+    border-bottom: none;
+}
+
+#tabla-registros td {
+    color: #49505a;
+    font-size: 1em;
+}
+
+#tabla-registros tbody tr:hover {
+    background: #f4f6fb;
+}

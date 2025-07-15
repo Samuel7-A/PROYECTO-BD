@@ -1,0 +1,145 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+    background-color: #fff;
+    color: #002b8c;
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+}
+
+body {
+    height: 100vh;
+    width: 100%;
+}
+
+.principal {
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+    justify-content: stretch;
+    height: 100vh;
+    width: 100%;
+}
+.formulario{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 400px;
+    max-width: 100%;
+}
+.campo{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin-bottom: 10px;    
+}
+.lado-derecho h2{
+    font-size: 30px;
+}
+.custom-label {
+    color: #002b8c;
+    margin-bottom: 8px;
+    font-size: 18px;
+}
+
+input[type="text"],
+input[type="password"] {
+    width: 100%;
+    padding: 12px 10px;
+    border: 1px solid #d1e0fa;
+    border-radius: 8px;
+    font-size: 20px;
+    background: #f4f6fb;
+    margin-bottom: 4px;
+    transition: border 0.2s;
+    height: 35px;
+}
+
+input[type="text"]:focus,
+input[type="password"]:focus {
+    border: 1.5px solid #195591;
+    outline: none;
+    background: #fff;
+}
+.lado-izquierdo {
+    width: 35%;
+    background: #0a3a6a;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 40px;
+    min-height: 100vh;
+    font-size: 20px;
+}
+
+.lado-izquierdo h2,
+.lado-izquierdo p {
+    color: #fff;
+    text-align: center;
+}
+.lado-derecho {
+    width: 65%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;  
+    justify-content: center;
+    min-height: 100vh;
+    background: #fff;
+}
+input {
+    width: 100%;
+    padding: 20px 10px;
+    font-size: 20px;
+    border: 1.5px solid #6c7a89; 
+    border-radius: 10px;            
+    background-color: #fafbfc;      
+    color: #222;
+    box-shadow: none;                
+    appearance: textfield;
+    outline: none;                     
+    transition: border-color 0.2s;
+}
+.lado-derecho button {
+    background-color: #0a3a6a;
+    color: #fff;
+    font-size: 20px;
+    padding: 16px 40px;
+    border: none;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    cursor: pointer;
+    transition: background 0.2s;
+    margin: 0;
+    display: inline-block;
+}
+
+.lado-derecho button:hover {
+    background-color: #072b50;
+}
+.btn-empleado {
+    position: fixed;
+    right: 32px;
+    bottom: 32px;
+    background-color: #0a3a6a;
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    padding: 14px 28px;
+    font-size: 1em;
+    font-weight: bold;
+    box-shadow: 0 2px 8px rgba(0,43,140,0.10);
+    cursor: pointer;
+    transition: background 0.2s;
+    z-index: 1000;
+}
+
+.btn-empleado:hover {
+    background-color: #072b50
+;
+}

@@ -1,0 +1,15 @@
+
+# Ignorar archivos temporales y de SQLTools
+*.session.sql
+*.log
+
+# Ignorar carpetas del sistema o de backup
+.DS_Store
+Thumbs.db
+
+# Ignorar configuraciones de VSCode (opcional)
+.vscode/
+
+# Ignorar archivos ocultos del sistema
+*.bak
+*.tmp
