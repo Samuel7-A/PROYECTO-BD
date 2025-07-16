@@ -78,7 +78,3 @@ CREATE TABLE INTENTOSFALLIDOS(
 );
 
 
-
--- Creacion de los procedures, aqui empiezan
-
-
