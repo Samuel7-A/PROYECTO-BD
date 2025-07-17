@@ -31,6 +31,6 @@
             </tbody>
         </table>        
     </main>
-    <button class="btn-salir" onclick="location.href='../indice/index.html'">Salir</button>
+    <button class="btn-salir" onclick="location.href='../indice/index.php'">Salir</button>
 </body>
 </html>
