@@ -1,4 +1,28 @@
 <!DOCTYPE html>
+
+<?php
+include('../../conexion.php'); // Ajusta esta ruta si tu conexion.php está en otra ubicación
+$error = "";
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $usuario = $_POST["usuario"]; // NO quites espacios internos
+    $clave = $_POST["clave"];
+
+    $consulta = $conexion->prepare("CALL ValidarEmpleadoLogin(?, ?)");
+    $consulta->bind_param("ss", $usuario, $clave);
+    $consulta->execute();
+    $resultado = $consulta->get_result();
+
+    if ($resultado->num_rows > 0) {
+        header("Location: ../empleado/empleado.php");
+        exit;
+    } else {
+        $error = "Usuario o clave inválidos. Intente de nuevo.";
+    }
+}
+?>
+
+
 <html lang="es">
 
 <head>
@@ -22,8 +46,13 @@
                     <label class="custom-label" for="clave">Clave de acceso</label>
                     <input type="password" id="clave" name="clave" required>
                 </div>
-                <button type="button" onclick="location.href='empleado.html'">Ingresar</button>
+                <button type="submit">Ingresar</button>
             </form>
+
+            <?php if ($error): ?>
+                <p style="color: red;"><?php echo $error; ?></p>
+            <?php endif; ?>
+
         </div>
     </main>
 </body>

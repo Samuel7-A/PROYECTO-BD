@@ -11,16 +11,23 @@ INSERT INTO CUENTAS (
   ('12345678', 'Ahorros', '2023-05-12', 2500.00, 'soles'),
   ('12345678', 'Corriente', '2024-01-20', 5000.50, 'dolares');
 
-INSERT INTO CUENTAS (
-  C_DNI, TIPOCUENTA, FECHACREACION, MONTO, MONEDATIPO
+INSERT INTO SUCURSALES (
+    SUCURSAL_NOMBRE, SUCURSAL_DIRECCION, SUCURSAL_TELEFONO
 ) VALUES
-  ('12345678', 'Ahorros', '2023-05-12', 2500.00, 'soles'),
-  ('12345678', 'Corriente', '2024-01-20', 5000.50, 'dolares');
+    ('Sucursal Central', 'Av. Principal 123, Lima', '987654321'),
+    ('Sucursal Norte', 'Calle Los Olivos 456, Trujillo', '912345678');
+
+INSERT INTO EMPLEADOS (
+    E_ID, E_CLAVE, E_NOMBRE, E_APELLIDO, E_CARGO, E_SUCURSAL, E_FECHA_CONTRATACION
+) VALUES
+    ('EMP001', '3333', 'Joel Fernando', 'Medina Lizana', 'Cajero', 1, '2025-05-12'),
+    ('EMP002', '4444', 'Samuel Jeremy', 'Torres Ayala', 'Asistente de atención', 1, '2025-05-20'),
+    ('EMP003', '5555', 'Cesar Augusto', 'Uscuvilca Zarasi', 'Jefe de área', 2, '2025-03-05');
 
 INSERT INTO TARJETA (
-  CLAVETARJETA, TIPOTARJETA_ID, TIPOTARJETA_NOMBRE, TARJETA_ESTADO, TARJETA_MARCA
+  TARJETA_ID, CLAVETARJETA, TIPOTARJETA_ID, TIPOTARJETA_NOMBRE, TARJETA_ESTADO, TARJETA_MARCA
 ) VALUES
-  ('1111', 1, 'Débito', 'activa', 'Visa');
+  (1234567891234567,'2222', 1, 'Débito', 'activa', 'Visa');
 
 INSERT INTO TRANSACCIONES (
   TRANSACCION_TIPO, TRANSACCION_FECHA, C_DNI, TRANSACCION_MONTO

@@ -1,4 +1,28 @@
 <!DOCTYPE html>
+
+<?php
+include('../../conexion.php'); // Ajusta esta ruta si tu conexion.php está en otra ubicación
+$error = "";
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $tarjeta = str_replace(' ', '', $_POST["numero_tarjeta"]);
+    $clave = $_POST["clave"];
+
+    $consulta = $conexion->prepare("SELECT * FROM TARJETA WHERE TARJETA_ID = ? AND CLAVETARJETA = ?");
+    $consulta->bind_param("ss", $tarjeta, $clave);
+    $consulta->execute();
+    $resultado = $consulta->get_result();
+
+    if ($resultado->num_rows > 0) {
+        header("Location: ../apartado/apartado.html");
+        exit;
+    } else {
+        $error = "Número de tarjeta o clave inválidos. Intente de nuevo.";
+    }
+}
+?>
+
+
 <html lang="en">
 
 <head>
@@ -20,17 +44,22 @@
             <form class="formulario" action="" method="post">
                 <div class="campo">
                     <label class="custom-label" for="numero-tarjeta">Número de tarjeta</label>
-                    <input type="text" id="numero-tarjeta" name="numero-tarjeta" maxlength="19" autocomplete="off">
+                    <input type="text" id="numero-tarjeta" name="numero_tarjeta" maxlength="19" autocomplete="off">
                 </div>
                 <br>
                 <div class="campo">
                     <label class="custom-label" for="clave">Clave de acceso</label>
-                    <input type="password" id="clave" name="clave" maxlength="4" inputmode="numeric" pattern="\d{4}"
-                        required oninput="this.value = this.value.replace(/\D/g, '')">
+                    <input type="password" id="clave" name="clave" maxlength="4" inputmode="numeric" pattern="\d{4}" required
+                        oninput="this.value = this.value.replace(/\D/g, '')">
                 </div>
-                <button type="button" onclick="location.href='../apartado/apartado.html'">Ingresar</button>
+                <button type="submit">Ingresar</button>
             </form>
-            <button class="btn-empleado" onclick="location.href='../empleado/empleado_login.html'">Ingresar como
+
+            <?php if ($error): ?>
+                <p style="color: red;"><?php echo $error; ?></p>
+            <?php endif; ?>
+
+            <button class="btn-empleado" onclick="location.href='../empleado/empleado_login.php'">Ingresar como
                 Empleado</button>
         </div>
     </main>

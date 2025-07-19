@@ -79,7 +79,7 @@ input[type="password"]:focus {
     background: #fff;
 }
 
-button[type="button"] {
+button {
     background-color: #0a3a6a;
     color: #fff;
     border: none;
@@ -94,6 +94,6 @@ button[type="button"] {
     box-shadow: 0 2px 8px rgba(0,43,140,0.10);
 }
 
-button[type="button"]:hover {
+button:hover {
     background-color: #072b50;
 }
