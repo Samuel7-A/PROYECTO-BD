@@ -8,7 +8,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $usuario = $_POST["usuario"]; // NO quites espacios internos
     $clave = $_POST["clave"];
 
-    $consulta = $conexion->prepare("CALL ValidarEmpleadoLogin(?, ?)");
+    $consulta = $conexion->prepare("CALL ValidarEmpleadoPorID(?, ?)");
     $consulta->bind_param("ss", $usuario, $clave);
     $consulta->execute();
     $resultado = $consulta->get_result();
@@ -44,7 +44,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <br>
                 <div class="campo">
                     <label class="custom-label" for="clave">Clave de acceso</label>
-                    <input type="password" id="clave" name="clave" required>
+                    <input type="password" id="clave" name="clave" maxlength="4" inputmode="numeric" pattern="\d{4}" required>
                 </div>
                 <button type="submit">Ingresar</button>
             </form>

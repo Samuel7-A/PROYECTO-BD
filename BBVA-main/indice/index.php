@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 
 <?php
+session_start(); // <--- Siempre al principio
+
 include('../../conexion.php'); // Ajusta esta ruta si tu conexion.php está en otra ubicación
 $error = "";
 
@@ -14,14 +16,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $resultado = $consulta->get_result();
 
     if ($resultado->num_rows > 0) {
-        header("Location: ../apartado/apartado.html");
-        exit;
+    $usuario = $resultado->fetch_assoc();
+    $_SESSION['tarjeta_id'] = $usuario['TARJETA_ID'];
+    $_SESSION['dniCliente'] = $usuario['C_DNI'];
+    $_SESSION['autenticado'] = true; // ✅ importante
+    unset($_SESSION['cliente_dni']);
+    header("Location: ../apartado/apartado.php");
+    exit;
     } else {
         $error = "Número de tarjeta o clave inválidos. Intente de nuevo.";
     }
 }
 ?>
-
 
 <html lang="en">
 

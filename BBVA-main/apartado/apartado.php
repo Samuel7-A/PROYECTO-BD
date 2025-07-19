@@ -1,4 +1,27 @@
 <!DOCTYPE html>
+
+<?php
+session_start();
+
+// Verificar que el usuario haya iniciado sesión
+if (!isset($_SESSION['autenticado']) || $_SESSION['autenticado'] !== true) {
+    header("Location: ../cliente/index.php");
+    exit;
+}
+
+include('../../conexion.php');
+
+$tarjeta_id = $_SESSION['tarjeta_id'];
+$dni_cliente = $_SESSION['dniCliente']; // ✅ debe coincidir con el nombre del index
+
+echo '<pre>';
+print_r($_SESSION);
+echo '</pre>';
+
+
+?>
+
+
 <html lang="en">
 
 <head>
@@ -38,7 +61,7 @@
                     </svg>
                 </div>
                 <div class="dropdown-content">
-                    <a href="../deposito/deposito.html">Cuenta propia</a>
+                    <a href="../deposito/deposito.php">Cuenta propia</a>
                 </div>
             </div>
             <!-- Botón Ir a la página de inicio -->

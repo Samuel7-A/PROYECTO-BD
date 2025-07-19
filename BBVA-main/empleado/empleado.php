@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -11,26 +12,28 @@
         <h1>Portal del Empleado BBVA</h1>        
     </header>
     <main>
-        <h2>Registros de eventos de clientes (Ejemplo)</h2>
+        <h2>Registros de eventos de clientes</h2>
+        <input type="number" id="clienteIdInput" placeholder="Ingrese ID del cliente">
+        <button onclick="buscarEventos()">Buscar</button>
+
         <table id="tabla-registros">
             <thead>
                 <tr>
-                    <th>Cliente</th>
-                    <th>Tipo de Cuenta</th>
-                    <th>Tipo de tarjeta</th>
-                    <th>Estado de Cuenta</th>
+                    <th>DNI</th>
+                    <th>Tipo Evento</th>
+                    <th>Monto Antiguo</th>
+                    <th>Monto Nuevo</th>
+                    <th>Estado Antiguo</th>
+                    <th>Estado Nuevo</th>
+                    <th>Fecha</th>
                 </tr>
             </thead>
-            <tbody>
-                <tr>
-                    <td>Juan Pérez</td>
-                    <td>Ahorros</td>
-                    <td>------</td>
-                    <td>Activo</td>
-                </tr>
-            </tbody>
-        </table>        
+            <tbody></tbody>
+        </table>
     </main>
     <button class="btn-salir" onclick="location.href='../indice/index.php'">Salir</button>
+
+    <script src="eventos.js"></script>
+
 </body>
 </html>
