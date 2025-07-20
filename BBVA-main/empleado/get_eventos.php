@@ -7,7 +7,7 @@ if (isset($_GET['clienteId'])) {
     $clienteId = $_GET['clienteId'];
 
     $stmt = $conexion->prepare("CALL ObtenerEventosCliente(?)");
-    $stmt->bind_param("i", $clienteId);
+    $stmt->bind_param("s", $clienteId);
     $stmt->execute();
 
     $resultado = $stmt->get_result();

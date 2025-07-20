@@ -18,6 +18,38 @@ echo '<pre>';
 print_r($_SESSION);
 echo '</pre>';
 
+// Consulta para obtener información de la cuenta
+$query = "
+    SELECT 
+        C.C_NOMBRE, 
+        C.C_APELLIDO, 
+        CU.TIPOCUENTA, 
+        CU.MONTO, 
+        T.TARJETA_ID
+    FROM CUENTAS CU
+    JOIN CLIENTES C ON C.C_DNI = CU.C_DNI
+    JOIN TARJETA T ON T.C_DNI = CU.C_DNI
+    WHERE CU.C_DNI = ?
+";
+
+$stmt = $conexion->prepare($query);
+$stmt->bind_param("s", $dni_cliente);
+$stmt->execute();
+$resultado = $stmt->get_result();
+
+if ($resultado->num_rows > 0) {
+    $fila = $resultado->fetch_assoc();
+    $nombre = $fila['C_NOMBRE'] . ' ' . $fila['C_APELLIDO'];
+    $tipo = $fila['TIPOCUENTA'];
+    $numero = $fila['TARJETA_ID'];
+    $saldo = $fila['MONTO'];
+} else {
+    // Si no hay datos, puedes redirigir o mostrar un mensaje de error
+    $nombre = "No encontrado";
+    $tipo = "N/A";
+    $numero = "N/A";
+    $saldo = "0.00";
+}
 
 ?>
 
@@ -37,10 +69,10 @@ echo '</pre>';
         <div class="caja-apartado">
             <div class="info-cuenta">
                 <h2>Información de tu cuenta</h2>
-                <p><strong>Nombre:</strong> (Ejemplo) Juan Pérez Ramirez Valdez</p>
-                <p><strong>Tipo de cuenta:</strong> (Ejemplo) Cuenta de Ahorros</p>
-                <p><strong>Número de cuenta:</strong> (Ejemplo) 1234567890</p>
-                <p><strong>Monto total:</strong> (Ejemplo) S/ 2,500.00</p>
+                <p><strong>Nombre:</strong> <?= htmlspecialchars($nombre) ?></p>
+                <p><strong>Tipo de cuenta:</strong> <?= htmlspecialchars($tipo) ?></p>
+                <p><strong>Número de tarjeta:</strong> <?= htmlspecialchars($numero) ?></p>
+                <p><strong>Monto total:</strong> <?= htmlspecialchars($saldo) ?></p>
             </div>
         </div>
         <div class="opciones-acciones">

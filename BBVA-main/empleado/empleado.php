@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 
 <html lang="en">
@@ -13,19 +14,20 @@
     </header>
     <main>
         <h2>Registros de eventos de clientes</h2>
-        <input type="number" id="clienteIdInput" placeholder="Ingrese ID del cliente">
+        <input type="number" id="clienteIdInput" placeholder="Ingrese DNI del cliente">
         <button onclick="buscarEventos()">Buscar</button>
 
         <table id="tabla-registros">
             <thead>
                 <tr>
+                    <th>ID</th>
                     <th>DNI</th>
+                    <th>Fecha</th>
                     <th>Tipo Evento</th>
                     <th>Monto Antiguo</th>
                     <th>Monto Nuevo</th>
                     <th>Estado Antiguo</th>
                     <th>Estado Nuevo</th>
-                    <th>Fecha</th>
                 </tr>
             </thead>
             <tbody></tbody>

@@ -55,6 +55,7 @@ END;
 DELIMITER ;
 
 -- 
+DELIMITER $$
 CREATE TRIGGER registrar_evento_estado_tarjeta
 AFTER UPDATE ON TARJETA
 FOR EACH ROW
@@ -79,5 +80,5 @@ BEGIN
             NEW.TARJETA_ESTADO
         );
     END IF;
-END;
-
+END$$
+DELIMITER ;
